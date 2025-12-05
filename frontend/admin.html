@@ -1,48 +1,43 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Admin - Results</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <style>
-    body{font-family:Arial; padding:20px; background:#f4f6fb;}
-    table{border-collapse:collapse; width:100%; background:#fff;}
-    th,td{padding:8px; border:1px solid #ddd;}
-    th{background:#0f172a; color:#fff;}
-  </style>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
 </head>
 <body>
-  <h2>Admin Dashboard - Student Results</h2>
-  <table id="results-table">
-    <thead><tr><th>Username</th><th>Score</th><th>Total</th><th>Time(s)</th><th>Submitted At</th></tr></thead>
-    <tbody></tbody>
-  </table>
+
+<h2>Admin Dashboard</h2>
+
+<table border="1">
+    <thead>
+        <tr><th>Username</th><th>Score</th></tr>
+    </thead>
+    <tbody id="results"></tbody>
+</table>
 
 <script>
-  const API_BASE = "https://quiz-backend-yloo.onrender.com";
+const API_BASE = "https://quiz-backend-yloo.onrender.com";
 
-async function loadResults(){
-  const token = localStorage.getItem('token');
-  const res = await fetch('/api/results', {
-    headers: { 'Authorization': 'Bearer ' + token }
-  });
-  if(res.ok){
-    const data = await res.json();
-    const tbody = document.querySelector('#results-table tbody');
-    tbody.innerHTML = '';
-    Object.keys(data).forEach(u => {
-      const r = data[u];
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${u}</td><td>${r.score}</td><td>${r.total}</td><td>${r.timeTakenSeconds}</td><td>${r.submittedAt}</td>`;
-      tbody.appendChild(tr);
+async function loadResults() {
+    const res = await fetch(API_BASE + "/api/results");
+    const data = await res.json().catch(async () => {
+        console.log(await res.text());
+        alert("Server error loading results.");
     });
-  } else {
-    alert('Unauthorized. Please login as admin.');
-    window.location = '/index.html';
-  }
+
+    let tbody = document.getElementById("results");
+    tbody.innerHTML = "";
+
+    data.forEach(r => {
+        tbody.innerHTML += `
+        <tr>
+            <td>${r.username}</td>
+            <td>${r.score}</td>
+        </tr>`;
+    });
 }
+
 loadResults();
 </script>
-
 </body>
 </html>
