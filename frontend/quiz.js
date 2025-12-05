@@ -1,5 +1,5 @@
 /* Frontend quiz.js - interacts with backend API */
-const API_BASE = "https://quiz-app-fullstack-76zm.onrender.com";
+const API_BASE = "https://quiz-backend-yloo.onrender.com";
 
 if(!localStorage.getItem('token')){
   alert('Please login first.');
