@@ -1,0 +1,24 @@
+/* Combined CSS - kept concise */
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  background: linear-gradient(135deg,#f8f9fb 0%, #e8f0ff 100%);
+  margin: 0;
+  color: #1f2937;
+}
+.site-header { text-align:center; padding:1.25rem; background:#0f172a; color:#fff; }
+.container{display:flex; justify-content:center; gap:20px; padding:28px; align-items:flex-start;}
+#card{background:#fff; border-radius:14px; padding:20px; box-shadow:0 10px 30px rgba(2,6,23,0.08); width:70%;}
+#top-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
+#timer{font-weight:700; background:linear-gradient(90deg,#ff7a7a,#ff4d4d); color:white; padding:8px 14px; border-radius:10px;}
+#time-progress-outer{flex:1; margin-left:16px; background:#eef2ff; height:12px; border-radius:999px; overflow:hidden;}
+#time-progress{height:100%; width:0%; background:linear-gradient(90deg,#60c657,#2bb673); transition:width 0.5s linear;}
+.question-area{font-size:1.2rem; font-weight:700; margin-bottom:12px;}
+.answers-area{display:flex; flex-direction:column; gap:10px;}
+.answer-btn{width:100%; text-align:left; background:#f8fafc; padding:12px 14px; border-radius:10px; border:1px solid #e6eef8; cursor:pointer;}
+.answer-btn.selected{background:#dbeafe; border-left:6px solid #60a5fa;}
+.primary-btn{background:#0f172a; color:white; padding:10px 14px; border:none; border-radius:10px; cursor:pointer;}
+.q-btn{width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; background:#f8fafc; border:1px solid #e6eef8; cursor:pointer; font-weight:600;}
+.q-btn.answered{background:#dbeafe; border-left:4px solid #60a5fa;}
+.q-btn.current{background:#fff7ed; border-left:4px solid #f59e0b;}
+.q-btn.unanswered{background:#f8fafc;}
+@media (max-width:900px){ .container{padding:14px;} #card,#nav-panel{width:100%;} }
