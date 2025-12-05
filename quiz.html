@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Quiz Challenge — Full Timer & Navigation</title>
+  <link rel="stylesheet" href="quiz.css"/>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>🎯 Quiz Challenge</h1>
+  <p>20-minute quiz • You can jump between questions • Questions are shuffled each attempt</p>
+</header>
+
+<main class="container">
+  <div id="quiz-wrapper">
+
+    <div id="top-row">
+      <div id="timer">⏳ 20:00</div>
+      <div id="time-progress-outer">
+        <div id="time-progress"></div>
+      </div>
+    </div>
+
+    <div id="card">
+      <div id="meta">
+        <div id="q-index">Question <span id="current-num">1</span> / <span id="total-num">30</span></div>
+        <div id="action-row">
+          <button id="prevBtn" class="nav-btn">← Prev</button>
+          <button id="nextBtn" class="nav-btn">Next →</button>
+        </div>
+      </div>
+
+      <div id="question" class="question-area"></div>
+      <div id="answers" class="answers-area"></div>
+
+      <div id="controls">
+        <button id="markBtn" class="muted-btn">Mark/Unmark</button>
+        <button id="submitBtn" class="primary-btn">Submit Quiz</button>
+      </div>
+    </div>
+
+    <aside id="nav-panel">
+      <h3>Jump to question</h3>
+      <div id="nav-buttons"></div>
+      <p class="legend"><span class="legend-box answered"></span> Answered &nbsp; <span class="legend-box current"></span> Current &nbsp; <span class="legend-box unanswered"></span> Unanswered</p>
+    </aside>
+
+  </div>
+
+  <p class="center"><a href="/index.html">← Logout / Back</a></p>
+</main>
+
+<script src="quiz.js"></script>
+</body>
+</html>
